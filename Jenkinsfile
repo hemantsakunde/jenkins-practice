@@ -1,9 +1,14 @@
 pipeline {
-    agent { docker { image 'node:24.13.0-alpine3.23' } }
+    agent any
+
     stages {
-        stage('build') {
+        stage('Node Version') {
             steps {
-                sh 'node --version'
+                script {
+                    docker.image('node:24.13.0-alpine3.23').inside {
+                        sh 'node --version'
+                    }
+                }
             }
         }
     }
