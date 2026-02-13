@@ -1,1 +1,1 @@
-console.log("This is a nodejs project")
+const a = 10;
